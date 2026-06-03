@@ -25,7 +25,7 @@ export default function Navbar() {
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_#355f52_0%,_#1a2421_55%,_#000_100%)] backdrop-blur-sm" />
 
       {/* NAVBAR CONTENT */}
-      <div className="relative z-10 mx-auto flex h-16 w-full max-w-7xl items-center justify-between px-4 md:h-20 md:px-8">
+      <div className="relative z-10 mx-auto flex h-16 w-full max-w-7xl items-center justify-between px-4 md:h-20">
         {/* LOGO */}
         <Link href="/" className="flex items-center gap-2">
           <Image
