@@ -1,0 +1,18 @@
+# Frontend
+nextgen-design-website/node_modules
+nextgen-design-website/.next
+
+# Backend
+nextgen-ai-backend/venv
+nextgen-ai-backend/__pycache__
+
+# Env
+.env
+.env.local
+
+# Python
+*.pyc
+
+# OS
+.DS_Store
+Thumbs.db
