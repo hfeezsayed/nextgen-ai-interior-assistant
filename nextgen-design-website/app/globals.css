@@ -1,0 +1,17 @@
+@import "tailwindcss";
+
+.input {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 14px;
+  border: 1px solid #d1d5db;
+  outline: none;
+}
+.input:focus {
+  border-color: #0e2f26;
+  box-shadow: 0 0 0 2px rgba(14, 47, 38, 0.15);
+}
+
+img {
+  image-orientation: from-image;
+}

@@ -1,0 +1,22 @@
+[
+  {
+    "title": "Residential Interior Design",
+    "description": "Thoughtfully designed home interiors tailored to your lifestyle, blending aesthetics, comfort, and functionality.",
+    "image": "/images/services/residential.jpg"
+  },
+  {
+    "title": "Kitchen Design",
+    "description": "Efficient, elegant modular kitchens crafted for modern living with premium materials and smart layouts.",
+    "image": "/images/services/kitchen.jpg"
+  },
+  {
+    "title": "Living & Bedroom Interiors",
+    "description": "Warm, inviting living and bedroom spaces designed for comfort, balance, and timeless appeal.",
+    "image": "/images/services/living-bedroom.jpg"
+  },
+  {
+    "title": "Turnkey Home Solutions",
+    "description": "End-to-end interior solutions — from concept to execution — ensuring a seamless and stress-free experience.",
+    "image": "/images/services/turnkey.jpg"
+  }
+]

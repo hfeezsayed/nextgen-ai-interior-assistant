@@ -1,0 +1,14 @@
+[
+  {
+    "title": "Living",
+    "image": "/images/services/living.jpeg"
+  },
+  {
+    "title": "Bedroom",
+    "image": "/images/services/bedroom.jpeg"
+  },
+  {
+    "title": "Kitchen",
+    "image": "/images/services/kitchen.jpeg"
+  }
+]

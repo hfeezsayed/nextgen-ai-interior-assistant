@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "title": "Modern living room interior design for Indian apartment in Mumbai",
+    "category": "living-room-interior-mumbai",
+    "image": "/images/projects/living-room-interior-mumbai.JPG"
+  },
+  {
+    "id": 2,
+    "title": "Luxury Villa Living Space",
+    "category": "Home Interior Design",
+    "image": "/images/projects/luxury-living-interior-design.jpg"
+  },
+  {
+    "id": 3,
+    "title": "Modular Kitchen Interior Design Mumbai",
+    "category": "Kitchen Interior",
+    "image": "/images/projects/modular-kitchen-design-indian-flat.JPG"
+  }
+]
