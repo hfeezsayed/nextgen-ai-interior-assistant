@@ -10,7 +10,9 @@ interface Message {
 }
 
 export default function ChatWidget() {
-  const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://127.0.0.1:8000";
+  const API_URL =
+    process.env.NEXT_PUBLIC_API_URL ||
+    "https://nextgen-ai-interior-assistant.onrender.com";
 
   const userId = useRef("user_" + Math.random().toString(36).substring(2, 10));
 
@@ -28,14 +30,18 @@ export default function ChatWidget() {
     },
   ]);
 
+  // Auto Open Desktop Only
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setOpen(true);
-    }, 1500);
+    if (window.innerWidth >= 768) {
+      const timer = setTimeout(() => {
+        setOpen(true);
+      }, 1500);
 
-    return () => clearTimeout(timer);
+      return () => clearTimeout(timer);
+    }
   }, []);
 
+  // Auto Scroll
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({
       behavior: "smooth",
@@ -45,7 +51,7 @@ export default function ChatWidget() {
   const sendMessage = async () => {
     const message = input.trim();
 
-    if (!message) return;
+    if (!message || chatDisabled) return;
 
     setMessages((prev) => [
       ...prev,
@@ -78,10 +84,12 @@ export default function ChatWidget() {
       ]);
 
       if (botReply.includes("Our team will contact you shortly")) {
+        // Disable after 10 sec
         setTimeout(() => {
           setChatDisabled(true);
         }, 10000);
 
+        // Close after 20 sec
         setTimeout(() => {
           setOpen(false);
         }, 20000);
@@ -114,8 +122,9 @@ export default function ChatWidget() {
         onClick={() => setOpen(true)}
         className="
           fixed
-          bottom-[8%]
-          right-6
+          bottom-4
+          right-4
+          md:right-6
           z-50
           rounded-full
           bg-[#1f3d34]
@@ -129,7 +138,6 @@ export default function ChatWidget() {
         <MessageCircle size={24} />
       </button>
 
-      {/* Popup */}
       <AnimatePresence>
         {open && (
           <motion.div
@@ -138,23 +146,34 @@ export default function ChatWidget() {
             exit={{ opacity: 0, y: 40 }}
             className="
               fixed
-              bottom-4
-              right-6
+              bottom-2
+              left-2
+              right-2
+
+              md:left-auto
+              md:right-6
+              md:bottom-4
+              md:w-[360px]
+
               z-50
-              w-[360px]
+
+              h-[70vh]
+              md:h-[520px]
+
               overflow-hidden
               rounded-2xl
               border
               border-white/10
               bg-[#111]
               shadow-2xl
+
+              flex
+              flex-col
             "
           >
             {/* Header */}
             <div className="flex items-center justify-between bg-[#1f3d34] px-4 py-3 text-white">
-              <div>
-                <h3 className="font-semibold">NextGen AI Assistant</h3>
-              </div>
+              <h3 className="font-semibold">NextGen AI Assistant</h3>
 
               <button onClick={() => setOpen(false)}>
                 <X size={18} />
@@ -162,7 +181,7 @@ export default function ChatWidget() {
             </div>
 
             {/* Messages */}
-            <div className="h-[320px] overflow-y-auto p-4 space-y-3">
+            <div className="flex-1 overflow-y-auto p-4 space-y-3">
               {messages.map((msg, index) => (
                 <div
                   key={index}
@@ -171,7 +190,7 @@ export default function ChatWidget() {
                   }`}
                 >
                   <div
-                    className={`max-w-[80%] rounded-xl p-3 text-sm ${
+                    className={`max-w-[85%] rounded-xl p-3 text-sm ${
                       msg.sender === "user"
                         ? "bg-[#1f3d34] text-white"
                         : "bg-white/10 text-white"
@@ -230,7 +249,7 @@ export default function ChatWidget() {
                     text-white
                     hover:opacity-90
                     ${chatDisabled ? "opacity-50 cursor-not-allowed" : ""}
-                `}
+                  `}
                 >
                   <Send size={18} />
                 </button>
